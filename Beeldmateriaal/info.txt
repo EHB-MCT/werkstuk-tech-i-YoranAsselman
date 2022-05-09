@@ -1,0 +1,5 @@
+Hierin zet je foto materiaal, zorg voor volgende fotos:
+
+* foto's van je breadboard met de kabels, zodat alle connecties zichtbaar zijn
+* foto's van je eindresultaat
+* foto's of video van de interactie
