@@ -1,0 +1,57 @@
+#include <Servo.h>
+
+Servo myservo;
+
+#define servoPin 9
+
+int angle = 0;
+int buttonState = 0;
+
+const int buttonPin = 2;
+const int ledPin1 =  3;
+const int ledPin2 =  4;
+const int ledPin3 =  5;
+const int ledPin4 =  6;
+
+void setup() {
+  myservo.attach(servoPin);
+
+  pinMode(buttonPin, INPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
+  pinMode(ledPin4, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  buttonState = digitalRead(buttonPin);
+  Serial.println(buttonState);
+
+  if ( buttonState == 0) {
+    for (angle = 90; angle <= 270; angle += 1) {
+      myservo.write(angle);
+      delay(50);
+
+    }
+    digitalWrite(ledPin1, HIGH);
+    delay(1000);
+    digitalWrite(ledPin2, HIGH);
+    delay(1000);
+    digitalWrite(ledPin3, HIGH);
+    delay(1000);
+    digitalWrite(ledPin4, HIGH);
+    delay(1000);
+    digitalWrite(ledPin4, LOW);
+    delay(1000);
+    digitalWrite(ledPin4, HIGH);
+    delay(1000);
+    digitalWrite(ledPin4, LOW);
+    delay(1000);
+    digitalWrite(ledPin3, LOW);
+    delay(1000);
+    digitalWrite(ledPin2, LOW);
+    delay(1000);
+    digitalWrite(ledPin1, LOW);
+  }
+}
